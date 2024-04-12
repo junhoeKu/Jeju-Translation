@@ -11,9 +11,13 @@
   - https://www.aihub.or.kr/aihubdata/data/view.do?currMenu=115&topMenu=100&aihubDataSe=data&dataSetSn=121
 
 ## 💻 3. 사용된 기술
+사전 학습된 모델을 불러 Fine-tuning을 진행해주었습니다.
+
 번역 모델 개발을 위해 활용한 모델:
-- 딥러닝 기반 Transformer 모델
-이 모델은 높은 번역 정확도를 달성하기 위해 특별히 조정되었습니다.
+- gogamza/kobart-base-v2
+  - SKT-AI 에서 제공
+  - https://huggingface.co/gogamza/kobart-base-v2 (Hugging Face)
+  - https://github.com/SKT-AI/KoBART (Github)
 
 ## 📈 4. 주요 성과
 - BLEU 점수: XX.X
