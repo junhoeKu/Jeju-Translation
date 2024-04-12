@@ -8,8 +8,8 @@
 - 한국어 방언 발화 데이터 (AI-Hub 제공)
   - 방언(제주도)을 사용하는 일상 대화를 인식, 음성을 문자로 바꾸어주는 방언 발화 음성 데이터
   - json파일을 전처리해 얻은 라벨 데이터만 사용
-  - https://www.aihub.or.kr/aihubdata/data/view.do?currMenu=115&topMenu=100&aihubDataSe=data&dataSetSn=121
-\데이터는 철저히 검증 및 정제를 거쳐 모델 학습에 사용되었습니다.
+  - https://www.aihub.or.kr/aihubdata/data/view.do?currMenu=115&topMenu=100&aihubDataSe=data&dataSetSn=121 \
+데이터는 철저히 검증 및 정제를 거쳐 모델 학습에 사용되었습니다.
 
 ## 💻 3. 사용된 기술
 번역 모델 개발을 위해 활용한 모델:
