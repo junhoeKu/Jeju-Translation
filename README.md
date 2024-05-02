@@ -19,9 +19,14 @@
   - https://huggingface.co/gogamza/kobart-base-v2 (Hugging Face)
   - https://github.com/SKT-AI/KoBART (Github)
 
+고려해봤지만 선택하지 않은 모델:
+- T5 (시간이 오래 걸리는 문제가 있음)
+- Jebert (성능이 별로 좋지 않았음)
+
 ## 📈 4. 주요 성과
-- BLEU 점수: XX.X
-- 정확도: XX%
+- BLEU 점수
+    - 제주어 -> 표준어 : 0.92
+    - 표준어 -> 제주어 : 0.62
 이 모델은 제주 사투리와 표준어 간의 양방향 번역에서 뛰어난 성능을 보였습니다.
 
 ## 🔍 5. 향후 계획
