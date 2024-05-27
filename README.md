@@ -7,8 +7,18 @@
 번역 모델 개발을 위해 사용된 데이터:
 - 한국어 방언 발화 데이터 (AI-Hub 제공)
   - 방언(제주도)을 사용하는 일상 대화를 인식, 음성을 문자로 바꾸어주는 방언 발화 음성 데이터
-  - json파일을 전처리해 얻은 라벨 데이터만 사용
+  - json 파일을 전처리해 얻은 라벨 데이터만 사용
   - https://www.aihub.or.kr/aihubdata/data/view.do?currMenu=115&topMenu=100&aihubDataSe=data&dataSetSn=121
+- 중·노년층 한국어 방언 데이터 (AI-Hub 제공)
+  - 충청, 전라, 제주 도민 방언 발화 음성 데이터 중 제주 발화 데이터만 사용
+  - json 파일을 전처리해 얻은 라벨 데이터만 사용
+  - https://www.aihub.or.kr/aihubdata/data/view.do?currMenu=115&topMenu=100&aihubDataSe=data&dataSetSn=71558
+- 카카오 JIT 제주 방언 데이터 (카카오브레인 GIT-HUB 참조)
+  - 깃허브 페이지 참고해서 데이터 수집
+  - https://github.com/kakaobrain/jejueo
+- 생활제주어 데이터 (제주어사전 참조)
+  - 제주특별자치도 자체에서 관리하는 제주어사전 웹페이지에서 수집
+  - https://www.jeju.go.kr/culture/dialect/lifeDialect.htm
 
 ## 💻 3. 모델 학습
 사전 학습된 모델을 불러 Fine-tuning을 진행해주었습니다.
