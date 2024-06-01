@@ -13,7 +13,7 @@
   - 충청, 전라, 제주 도민 방언 발화 음성 데이터 중 제주 발화 데이터만 사용
   - json 파일을 전처리해 얻은 라벨 데이터만 사용
   - https://www.aihub.or.kr/aihubdata/data/view.do?currMenu=115&topMenu=100&aihubDataSe=data&dataSetSn=71558
-- 카카오 JIT 제주 방언 데이터 (카카오브레인 GIT-HUB 참조)
+- 카카오 JIT 제주 방언 데이터 (카카오브레인 Github 참조)
   - 깃허브 페이지 참고해서 데이터 수집
   - https://github.com/kakaobrain/jejueo
 - 생활제주어 데이터 (제주어사전 참조)
