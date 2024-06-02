@@ -47,13 +47,13 @@
   - Jebert (성능이 별로 좋지 않았음)
 
 ## 📈 4. 주요 성과
-- 최종 BLEU 점수
+- **최종 BLEU 점수**
     - 제주어 -> 표준어 : 0.76
     - 표준어 -> 제주어 : 0.5
-- 전체적으로 우상향하는 BLEU Score을 기록하였습니다.
+- 전체적으로 **우상향하는 BLEU Score을 기록**하였습니다.
 <img src="Picture_polder/BLEU_Score_graph.png" alt="BLEU Score 시각화" width="600"/>
 
-- BLEU Score 성능 표
+- **BLEU Score 성능 표**
 
 |날짜|제주어->표준어 BLEU Score|표준어->제주어 BLEU Score|
 |-----|-------------------------|-------------------------|
