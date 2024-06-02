@@ -71,7 +71,7 @@
 인터페이스는 가볍게나마 만들었고 추후에 링크 첨부하겠습니다.
 음성 BY 음성 기능도 구현 중입니다.
 
-## 6. Etc..
+## 🧹 6. Etc..
 - 데이터 출처
   - 한국어 방언 발화 데이터 (AI-Hub 제공) : https://www.aihub.or.kr/aihubdata/data/view.do?currMenu=115&topMenu=100&aihubDataSe=data&dataSetSn=121
   - 중·노년층 한국어 방언 데이터 (AI-Hub 제공) : https://www.aihub.or.kr/aihubdata/data/view.do?currMenu=115&topMenu=100&aihubDataSe=data&dataSetSn=71558
