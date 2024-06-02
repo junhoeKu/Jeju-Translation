@@ -53,7 +53,8 @@
 - 전체적으로 우상향하는 BLEU Score을 기록하였습니다.
 <img src="Picture_polder/BLEU_Score_graph.png" alt="BLEU Score 시각화" width="600"/>
 
-- BLEU Score 성능 표     
+- BLEU Score 성능 표
+
 |날짜|제주어->표준어 BLEU Score|표준어->제주어 BLEU Score|
 |-----|-------------------------|-------------------------|
 |0413|0.56|0.35|
