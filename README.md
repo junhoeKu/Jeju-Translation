@@ -22,17 +22,13 @@
 - 한국어 방언 발화 데이터 (AI-Hub 제공)
   - 방언(제주도)을 사용하는 일상 대화를 인식, 음성을 문자로 바꾸어주는 방언 발화 음성 데이터
   - json 파일을 전처리해 얻은 라벨 데이터만 사용
-  - https://www.aihub.or.kr/aihubdata/data/view.do?currMenu=115&topMenu=100&aihubDataSe=data&dataSetSn=121
 - 중·노년층 한국어 방언 데이터 (AI-Hub 제공)
   - 충청, 전라, 제주 도민 방언 발화 음성 데이터 중 제주 발화 데이터만 사용
   - json 파일을 전처리해 얻은 라벨 데이터만 사용
-  - https://www.aihub.or.kr/aihubdata/data/view.do?currMenu=115&topMenu=100&aihubDataSe=data&dataSetSn=71558
 - 카카오 JIT 제주 방언 데이터 (카카오브레인 Github 참조)
   - 깃허브 페이지 참고해서 데이터 수집
-  - https://github.com/kakaobrain/jejueo
 - 생활제주어 데이터 (제주어사전 참조)
   - 제주특별자치도 자체에서 관리하는 제주어사전 웹페이지에서 수집
-  - https://www.jeju.go.kr/culture/dialect/lifeDialect.htm
 
 ## 💻 3. 모델 학습
 사전 학습된 모델을 불러 Fine-tuning을 진행해주었습니다.
@@ -57,3 +53,10 @@
 모델 성능을 더욱 향상시키기 위해 추가 데이터 수집과 모델 파인 튜닝을 계획하고 있습니다.
 인터페이스는 가볍게나마 만들었고 추후에 링크 첨부하겠습니다.
 음성 BY 음성 기능도 구현 중입니다.
+
+## 6. Etc..
+데이터 출처
+- 한국어 방언 발화 데이터 (AI-Hub 제공) : https://www.aihub.or.kr/aihubdata/data/view.do?currMenu=115&topMenu=100&aihubDataSe=data&dataSetSn=121
+- 중·노년층 한국어 방언 데이터 (AI-Hub 제공) : https://www.aihub.or.kr/aihubdata/data/view.do?currMenu=115&topMenu=100&aihubDataSe=data&dataSetSn=71558
+- 카카오 JIT 제주 방언 데이터 (카카오브레인 Github 참조) : https://github.com/kakaobrain/jejueo
+- 생활제주어 데이터 (제주어사전 참조) : https://www.jeju.go.kr/culture/dialect/lifeDialect.htm
