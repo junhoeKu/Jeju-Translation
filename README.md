@@ -36,19 +36,16 @@
 
 번역 모델 개발을 위해 활용한 모델:
 - gogamza/kobart-base-v2
-  - SKT-AI 에서 제공
-  - https://huggingface.co/gogamza/kobart-base-v2 (Hugging Face)
-  - https://github.com/SKT-AI/KoBART (Github)
 
 고려해봤지만 선택하지 않은 모델:
 - T5 (시간이 오래 걸리는 문제가 있음)
 - Jebert (성능이 별로 좋지 않았음)
 
 ## 📈 4. 주요 성과
-- BLEU 점수
-    - 제주어 -> 표준어 : 0.89
-    - 표준어 -> 제주어 : 0.77
-- 이 모델은 제주 사투리와 표준어 간의 양방향 번역에서 뛰어난 성능을 보였습니다.
+- 최종 BLEU 점수
+    - 제주어 -> 표준어 : 0.77
+    - 표준어 -> 제주어 : 0.60
+- 전체적으로 우상향하는 BLEU Score을 기록하였습니다.
 <img src="Picture_polder/BLEU_Score_graph.png" alt="BLEU Score 시각화" width="600"/>
 
 ## 🔍 5. 향후 계획
@@ -57,8 +54,11 @@
 음성 BY 음성 기능도 구현 중입니다.
 
 ## 6. Etc..
-데이터 출처
-- 한국어 방언 발화 데이터 (AI-Hub 제공) : https://www.aihub.or.kr/aihubdata/data/view.do?currMenu=115&topMenu=100&aihubDataSe=data&dataSetSn=121
-- 중·노년층 한국어 방언 데이터 (AI-Hub 제공) : https://www.aihub.or.kr/aihubdata/data/view.do?currMenu=115&topMenu=100&aihubDataSe=data&dataSetSn=71558
-- 카카오 JIT 제주 방언 데이터 (카카오브레인 Github 참조) : https://github.com/kakaobrain/jejueo
-- 생활제주어 데이터 (제주어사전 참조) : https://www.jeju.go.kr/culture/dialect/lifeDialect.htm
+- 데이터 출처
+  - 한국어 방언 발화 데이터 (AI-Hub 제공) : https://www.aihub.or.kr/aihubdata/data/view.do?currMenu=115&topMenu=100&aihubDataSe=data&dataSetSn=121
+  - 중·노년층 한국어 방언 데이터 (AI-Hub 제공) : https://www.aihub.or.kr/aihubdata/data/view.do?currMenu=115&topMenu=100&aihubDataSe=data&dataSetSn=71558
+  - 카카오 JIT 제주 방언 데이터 (카카오브레인 Github 참조) : https://github.com/kakaobrain/jejueo
+  - 생활제주어 데이터 (제주어사전 참조) : https://www.jeju.go.kr/culture/dialect/lifeDialect.htm
+- 모델 출처
+  - Kobart Hugging Face : https://huggingface.co/gogamza/kobart-base-v2
+  - Kobart Github : https://github.com/SKT-AI/KoBART
