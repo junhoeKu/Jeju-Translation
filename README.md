@@ -87,7 +87,7 @@
 - 음성 인식 모델의 억양 인식 능력 향상
 - 모바일 앱 개발 계획
 
-## 🧹 6. Etc..
+## 🧹 6. 참조
 - 데이터 출처
   - 한국어 방언 발화 데이터 (AI-Hub 제공) : https://www.aihub.or.kr/aihubdata/data/view.do?currMenu=115&topMenu=100&aihubDataSe=data&dataSetSn=121
   - 중·노년층 한국어 방언 데이터 (AI-Hub 제공) : https://www.aihub.or.kr/aihubdata/data/view.do?currMenu=115&topMenu=100&aihubDataSe=data&dataSetSn=71558
