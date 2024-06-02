@@ -49,7 +49,7 @@
     - 제주어 -> 표준어 : 0.89
     - 표준어 -> 제주어 : 0.77
 - 이 모델은 제주 사투리와 표준어 간의 양방향 번역에서 뛰어난 성능을 보였습니다.
-<img src="Analysis_picture/넷마블_워드클라우드.png" alt="워드클라우드 시각화" width="600"/>
+<img src="Picture_polder/BLEU_Score_graph.png" alt="BLEU Score 시각화" width="600"/>
 
 ## 🔍 5. 향후 계획
 모델 성능을 더욱 향상시키기 위해 추가 데이터 수집과 모델 파인 튜닝을 계획하고 있습니다.
