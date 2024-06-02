@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>제주의 언어 다리</title>
+<style type="text/css">
+    * {
+        font-family: 'Noto Sans KR', sans-serif;
+        font-size: 15px;
+        font-style: normal;
+        padding-left: 5px;
+    }
+
+    body {
+        background-color: #f5f5f5;
+        padding: 20px;
+    }
+
+    #header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #fd9f28;
+        padding: 10px 10px;
+        border-radius: 10px;
+        margin-bottom: 20px;
+    }
+
+    #header img {
+        height: 50px;
+    }
+
+    #leftmenu, #rightmenu {
+        display: flex;
+        align-items: center;
+    }
+
+    #leftmenu input, #rightmenu input {
+        margin-left: 10px;
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        padding: 5px 5px;
+        cursor: pointer;
+    }
+
+    #leftmenu input:hover, #rightmenu input:hover {
+        background-color: #f0f0f0;
+    }
+
+    #input {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 20px;
+    }
+
+    .table {
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        width: 48%;
+        border-collapse: collapse;
+    }
+
+    .table td {
+        border: none;
+        padding: 10px;
+    }
+
+    select, textarea, input[type="button"], input[type="submit"] {
+        width: 100%;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        padding: 10px;
+        margin-top: 10px;
+    }
+
+    textarea {
+        resize: none;
+    }
+
+    input[type="submit"] {
+        background-color: #fd9f28;
+        color: white;
+        cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+        background-color: #e47200;
+    }
+
+    hr {
+        margin-top: 40px;
+        border: none;
+        border-top: 1px solid #ddd;
+    }
+
+    #urlInput {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    #urlInput input[type="text"] {
+        width: 60%;
+        margin-right: 10px;
+        padding: 10px;
+    }
+
+    #urlInput select {
+        width: 20%;
+        padding: 10px;
+    }
+
+    #urlInput input[type="submit"] {
+        background-color: #fd9f28;
+        color: white;
+        cursor: pointer;
+    }
+
+    #urlInput input[type="submit"]:hover {
+        background-color: #e47200;
+    }
+</style>
+</head>
+<body>
+<div id="header">
+    <img src="../static/img/BITAMIN.png" alt="BITAMIN Logo">
+    <div id="leftmenu">
+        <input type="button" value="웹사이트 번역" onclick="location.href='https://papago.naver.net/website?locale=ko'">
+        <input type="button" value="문서 번역" onclick="location.href='https://papago.naver.com/docs/'">
+        <input type="button" value="GYM" onclick="location.href='https://papago.naver.com/gym/home'">
+        <input type="button" value="사전" onclick="location.href='https://dict.naver.com/'">
+    </div>
+    <div id="rightmenu">
+        <input type="button" value="작은창 번역">
+        <input type="button" value="즐겨찾기" onclick="bookmarkText()">
+        <input type="button" value="설정">
+        <input type="button" value="계정">
+        <input type="button" value="메뉴">
+    </div>
+</div>
+
+<hr>
+
+<div id="input">
+    <form id="translateForm" onsubmit="event.preventDefault(); translateText();" action="/translate" method="POST">
+        <table class="table">
+            <tr style="height:60px;">
+                <td>
+                    <select name="inputLang" id="sourceLanguage" onchange="setupOutputLanguage()">
+                        <option value="표준">표준어</option>
+                        <option value="제주">제주어</option>
+                    </select>
+                </td>
+                <td colspan="2"></td>
+                <td style="width:50px;">
+                    <input type="button" value="바꿈">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="4">
+                    <textarea rows="12" placeholder="번역할 내용을 입력하세요." id="inputText"></textarea>
+                </td>
+            </tr>
+            <tr style="height:60px;">
+                <td>
+                    <input type="button" value="발음듣기" onclick="playTextToSpeech('inputText')">
+                </td>
+                <td>
+                    <input type="button" value="복사하기" onclick="copyText('inputText')">
+                </td>
+                <td></td>
+                <td>
+                    <input type="submit" value="번역하기">
+                </td>
+            </tr>
+        </table>
+    </form>
+
+    <table class="table">
+        <tr style="height:60px;">
+            <td>
+                <select name="outputLang" id="outputLanguage">
+                    <option value="제주">제주어</option>
+                    <option value="표준">표준어</option>
+                </select>
+            </td>
+            <td colspan="5"></td>
+        </tr>
+        <tr>
+            <td colspan="5">
+                <textarea rows="12" placeholder="번역 결과를 출력합니다." id="translationResult" readonly></textarea>
+            </td>
+        </tr>
+        <tr style="height:60px;">
+            <td>
+                <input type="button" value="발음듣기" id="playTranslatedSpeech" onclick="playTextToSpeech('translationResult')">
+            </td>
+            <td>
+                <input type="button" value="복사하기" onclick="copyText('translationResult')">
+            </td>
+            <td>
+                <input type="button" value="즐겨찾기" onclick="bookmarkText()">
+            </td>
+            <td>
+                <input type="submit" value="공유하기" onclick="shareText()">
+            </td>
+            <td></td>
+        </tr>
+    </table>
+</div>
+
+<hr>
+
+<div id="urlInput">
+    웹사이트 번역
+    <input type="text" name="url" placeholder="URL을 입력하세요.">
+    <select name="translate">
+        <option>한국어</option>
+        <option>영어</option>
+        <option>일본어</option>
+        <option>중국어</option>
+    </select>
+    <span>로 번역</span>
+    <input type="submit" value="->" onclick="location.href='https://papago.naver.net/website?locale=ko&target=ko'">
+</div>
+
+<script>
+    function setupOutputLanguage() {
+        const inputLang = document.getElementById('sourceLanguage').value;
+        const outputLang = document.getElementById('outputLanguage');
+        
+        if (inputLang === '표준') {
+            outputLang.value = '제주';
+        } else if (inputLang === '제주') {
+            outputLang.value = '표준';
+        }
+    }
+
+    async function translateText() {
+        setupOutputLanguage(); // 호출하여 초기 설정
+
+        let inputText = document.getElementById('inputText').value;
+        const sourceLanguage = document.getElementById('sourceLanguage').value;
+        const outputLanguage = document.getElementById('outputLanguage').value;
+
+        // 엔터를 온점으로 변경
+        inputText = inputText.replace(/\n/g, '. ');
+
+        console.log('Input Text:', inputText);
+        console.log('Source Language:', sourceLanguage);
+        console.log('Output Language:', outputLanguage);
+
+        try {
+            const response = await fetch('http://143.198.93.184:5000/translate', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ text: inputText, source_language: sourceLanguage })
+            });
+
+            const responseData = await response.json();
+            console.log('Response Data:', responseData);
+            
+            if (responseData.translated_text) {
+                const translated_text = responseData.translated_text.replace(/\.\s/g, '\n');
+                document.getElementById('translationResult').innerHTML = translated_text;
+
+                // 발음듣기 버튼 클릭 시 음성 재생
+                document.getElementById('playTranslatedSpeech').onclick = () => {
+                playTextToSpeech('translationResult');
+                };
+            } else {
+                document.getElementById('translationResult').innerText = 'Translation error: ' + (responseData.error || 'Unknown error');
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            document.getElementById('translationResult').innerText = 'Error: ' + error.message;
+        }
+    }
+
+    function playTextToSpeech(elementId) {
+        console.log("발음듣기");
+        const text = document.getElementById(elementId).value;
+        const sourceLanguage = document.getElementById('sourceLanguage').value;
+
+        fetch('http://143.198.93.184:5000/text-to-speech', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ text: text, source_language: sourceLanguage }),
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.blob();
+        })
+        .then(audioBlob => {
+            const audioUrl = URL.createObjectURL(audioBlob);
+            const audio = new Audio(audioUrl);
+            audio.play();
+         })
+        .catch((error) => {
+            console.error('Error:', error);
+        });
+    }
+
+    function base64ToBlob(base64) {
+        const byteCharacters = atob(base64);
+        const byteNumbers = new Array(byteCharacters.length);
+        for (let i = 0; i < byteCharacters.length; i++) {
+            byteNumbers[i] = byteCharacters.charCodeAt(i);
+        }
+        const byteArray = new Uint8Array(byteNumbers);
+        return new Blob([byteArray], { type: 'audio/wav' });
+    }
+
+    function copyText(elementId) {
+        console.log('Copy Text:', document.getElementById(elementId).value);
+        const text = document.getElementById(elementId).value;
+        navigator.clipboard.writeText(text).then(() => {
+            console.log('Text copied to clipboard');
+        }).catch(err => {
+            console.error('Could not copy text: ', err);
+        });
+    }
+
+    function bookmarkText() {
+        console.log('Bookmark Text');
+        // Add functionality to bookmark the text if required
+    }
+
+    function shareText() {
+        console.log('Share Text');
+        // Add functionality to share the text if required
+    }
+</script>
+</body>
+</html>
