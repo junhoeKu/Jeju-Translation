@@ -1,0 +1,116 @@
+* {
+    font-family: 'Nanum Gothic KR', sans-serif;
+    font-size: 15px;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #c0e4f7; /* 바다색 배경 */
+    padding: 20px;
+}
+
+#header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fd9f28; /* 감귤색 헤더 배경 */
+    padding: 10px 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+#header img {
+    height: 50px;
+}
+
+#leftmenu, #rightmenu {
+    display: flex;
+    align-items: center;
+}
+
+#leftmenu input, #rightmenu input {
+    margin-left: 10px;
+    background-color: #f8e9d6; /* 연한 감귤색 */
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+#leftmenu input:hover, #rightmenu input:hover {
+    background-color: #ffcc80; /* 감귤색 호버 배경 */
+}
+
+#input {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.table {
+    background-color: #ffffff; /* 흰색 배경 */
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table td {
+    border: none;
+    padding: 10px;
+}
+
+select, textarea, input[type="button"], input[type="submit"] {
+    width: 100%;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+textarea {
+    resize: none;
+}
+
+input[type="submit"] {
+    background-color: #fd9f28; /* 감귤색 버튼 배경 */
+    color: white;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #e47200; /* 감귤색 호버 배경 */
+}
+
+hr {
+    margin-top: 40px;
+    border: none;
+    border-top: 1px solid #ddd;
+}
+
+#urlInput {
+    text-align: center;
+    margin-top: 20px;
+}
+
+#urlInput input[type="text"] {
+    width: 60%;
+    margin-right: 10px;
+    padding: 10px;
+}
+
+#urlInput select {
+    width: 20%;
+    padding: 10px;
+}
+
+#urlInput input[type="submit"] {
+    background-color: #fd9f28; /* 감귤색 버튼 배경 */
+    color: white;
+    cursor: pointer;
+}
+
+#urlInput input[type="submit"]:hover {
+    background-color: #e47200; /* 감귤색 호버 배경 */
+}
