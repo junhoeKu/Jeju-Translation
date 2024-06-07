@@ -95,4 +95,5 @@
   - 생활제주어 데이터 (제주어사전 참조) : https://www.jeju.go.kr/culture/dialect/lifeDialect.htm
 - **모델 출처**
   - Kobart Hugging Face : https://huggingface.co/gogamza/kobart-base-v2
+  - Whisper Hugging Face : https://huggingface.co/openai/whisper-large-v2
   - Kobart Github : https://github.com/SKT-AI/KoBART
