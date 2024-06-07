@@ -80,7 +80,7 @@
   - 허깅페이스에서 Whisper 모델 받아서 Fine-tuning 진행
   - 제주어 억양 학습해 text로 변환
 - TTS
-  - 
+  - 허깅페이스에서 glos TTS, hifigan 모델 받아서 fine-tuning 진행
 
 ## 🔍 5. 향후 계획
 - 양질의 데이터 확보를 위해 추가적인 데이터 수집과 문법적 미세 조정을 통한 전처리 수행
