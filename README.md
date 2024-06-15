@@ -76,18 +76,26 @@
 - **인터페이스 구현**
 
 - **음성 인식 기능**
+- **STT**
+  - 허깅페이스에서 Whisper 모델 받아서 Fine-tuning 진행
+  - 제주어 억양 학습해 text로 변환
+- **TTS**
+  - 허깅페이스에서 glos TTS, hifigan 모델 받아서 fine-tuning 진행
+  - 제주어 억양으로 음성 표현 시도했지만 실패...
+  - 표준어 음성으로 대신 표현 (gtts 사용)
 
 ## 🔍 5. 향후 계획
 - 양질의 데이터 확보를 위해 추가적인 데이터 수집과 문법적 미세 조정을 통한 전처리 수행
 - 음성 인식 모델의 억양 인식 능력 향상
-- 모바일 앱 개발 계획
+- 웹 구현 및 모바일 앱 개발 계획
 
 ## 🧹 6. 참조
-- 데이터 출처
+- **데이터 출처**
   - 한국어 방언 발화 데이터 (AI-Hub 제공) : https://www.aihub.or.kr/aihubdata/data/view.do?currMenu=115&topMenu=100&aihubDataSe=data&dataSetSn=121
   - 중·노년층 한국어 방언 데이터 (AI-Hub 제공) : https://www.aihub.or.kr/aihubdata/data/view.do?currMenu=115&topMenu=100&aihubDataSe=data&dataSetSn=71558
   - 카카오 JIT 제주 방언 데이터 (카카오브레인 Github 참조) : https://github.com/kakaobrain/jejueo
   - 생활제주어 데이터 (제주어사전 참조) : https://www.jeju.go.kr/culture/dialect/lifeDialect.htm
-- 모델 출처
+- **모델 출처**
   - Kobart Hugging Face : https://huggingface.co/gogamza/kobart-base-v2
+  - Whisper Hugging Face : https://huggingface.co/openai/whisper-large-v2
   - Kobart Github : https://github.com/SKT-AI/KoBART
