@@ -80,7 +80,7 @@
     - 허깅페이스에서 Whisper 모델 받아서 Fine-tuning 진행
     - 제주어 억양 학습해 text로 변환
   - **TTS**
-  - 허깅페이스에서 glos TTS, hifigan 모델 받아서 fine-tuning 진행
+    - 허깅페이스에서 glos TTS, hifigan 모델 받아서 fine-tuning 진행
     - 제주어 억양으로 음성 표현 시도했지만 실패...
     - 표준어 음성으로 대신 표현 (gtts 사용)
 
