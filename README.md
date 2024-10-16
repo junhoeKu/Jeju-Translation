@@ -70,7 +70,7 @@ Model Output: 안녕하수꽈
 ### 3-1. 모델 관련
 - **사전 학습 모델을 불러와 Fine-tuning 하는 방식**으로 학습하였습니다.
 - 번역 모델 개발을 위해 활용한 사전 학습 모델:
-  - **gogamza/kobart-base-v2**
+  - **gogamza/kobart-base-v2**  
 
 - **사전 학습 모델 선택 기준**
   - 번역 Task에 적합한 모델인가?
