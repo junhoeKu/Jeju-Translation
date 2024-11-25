@@ -35,7 +35,7 @@ Model Output: 안녕하수꽈
   - **제주어-표준어 데이터셋 수집, 전처리를 통해 새로운 데이터셋 제작** ([Dataset](https://huggingface.co/datasets/Junhoee/Jeju-Standard-Translation))
       - AI-Hub, Github 등 데이터 수집해 약 1,000,000개의 텍스트 데이터셋 구성
 - **번역 모델 로직 설계**
-  - 이후 **KoBART 모델로 Fine Tuning 진행**
+  - **KoBART 모델로 Fine Tuning 진행**
   - 한국어로 사전학습된 Text2Text 모델 중에서 **KoBART**가 성능이 가장 좋고 빠른 모델이라서 선택함
   - 양방향 로직을 설계하는 과정에서 문장 앞에 **[제주], [표준] 토큰을 입력해 모델로 하여금 이해하기 쉽게 만들어 성능 향상** (BLEU Score 0.5 -> 0.7로 향상, 최대 1 기준)
   - RAM 부족으로 인해 약 700,000개의 데이터만 학습시킬 수 있었지만 **데이터셋 포맷 방식을 float16에서 unit16으로 변경해 메모리 부족 문제 해결 (GPU 메모리, 자원 절약)**
