@@ -29,6 +29,21 @@ print("Model Output:", decoded_output)
 ```java
 Model Output: 안녕하수꽈
 ```
+
+## 🏅나의 역할
+- 번역 모델 로직 설계
+  - **제주어-표준어 데이터셋 수집, 전처리를 통해 새로운 데이터셋 제작** [Dataset](https://huggingface.co/datasets/Junhoee/Jeju-Standard-Translation)
+  - 이후 **KoBART 모델로 Fine Tuning 진행**
+  - 한국어로 사전학습된 Text2Text 모델 중에서 KoBART가 성능이 가장 좋고 빠른 모델이라서 선택함
+  - 양방향 로직을 설계하는 과정에서 문장 앞에 [제주], [표준] 토큰을 입력해 모델로 하여금 이해하기 쉽게 만들어 성능 향상 (BLEU Score 0.5 -> 0.7로 향상, 최대 1 기준)
+  - Whisper는 화자분리 기능을 지원하지 않아 로직을 따로 설계해야 하며 도메인별 특화 데이터셋으로 각각 모두 학습시켜야 하는데 이 부분에서 데이터셋 제작에 한계를 느낌
+  - **STT 성능도 API가 Fine Tuning보다 안정적이고 준수하며 메모리측면에서도 이득이기에 API를 활용하기로 결정**
+  - Google STT, ReturnZero STT, Naver Clova 등 다양한 API를 실험해본 결과, 가격과 성능 그리고 무엇보다 키워드 부스팅 (도메인 특화 가능) 성능이 뛰어난 **Naver Clova API**로 결정.
+
+- 요약 모델 및 최종 보고서 설계
+  - 오픈소스 한국어 LLM인 [Bllossom](https://huggingface.co/MLP-KTLim/llama-3-Korean-Bllossom-8B)을 활용
+ 
+  
 ## 🎯 1. 프로젝트 소개
 ### 🧑‍🤝‍🧑 **팀원**
 - **비타민 12기 : 구준회(Leader), 이서현, 이예린**
