@@ -33,7 +33,7 @@ Model Output: 안녕하수꽈
 ## 🏅나의 역할
 - **데이터셋 제작**
   - **제주어-표준어 데이터셋 수집, 전처리를 통해 새로운 데이터셋 제작** ([Dataset](https://huggingface.co/datasets/Junhoee/Jeju-Standard-Translation))
-      - AI-Hub, Github 등 데이터 수집해 약 1,000,000 행의 텍스트 데이터셋 구성
+      - AI-Hub, Github 등 데이터 수집해 약 1,000,000 행의 제주어-표준어 텍스트 데이터셋 구성
 - **번역 모델 로직 설계**
   - **KoBART 모델로 Fine Tuning 진행**
   - 한국어로 사전학습된 Text2Text 모델 중에서 **KoBART**가 성능이 가장 좋고 빠른 모델이라서 선택함
