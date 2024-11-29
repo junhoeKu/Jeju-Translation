@@ -26,7 +26,7 @@ outputs = model.generate(input_ids, max_length=64)
 decoded_output = tokenizer.decode(outputs[0], skip_special_tokens=True)
 print("Model Output:", decoded_output)
 ```
-```java
+```python
 Model Output: 안녕하수꽈
 ```
 
