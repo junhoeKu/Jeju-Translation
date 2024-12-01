@@ -4,7 +4,7 @@
 ```python
 import torch
 from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
-
+  
 ## Set up the device (GPU or CPU)
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
