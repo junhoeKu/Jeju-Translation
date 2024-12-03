@@ -29,7 +29,7 @@ print("Model Output:", decoded_output)
 ```python
 Model Output: 안녕하수꽈
 ```
-
+  
 ## 🏅나의 역할
 - **데이터셋 제작**
   - **제주어-표준어 데이터셋 수집, 전처리를 통해 새로운 데이터셋 제작** ([Dataset](https://huggingface.co/datasets/Junhoee/Jeju-Standard-Translation))
