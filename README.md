@@ -1,8 +1,48 @@
 # 🌊 제주어, 표준어 양방향 음성 번역 모델 생성 프로젝트 
+  
+## 모델 사용법
+```python
+import torch
+from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
+  
+## Set up the device (GPU or CPU)
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
+## Load the tokenizer and model
+tokenizer = AutoTokenizer.from_pretrained("Junhoee/Kobart-Jeju-translation")
+model = AutoModelForSeq2SeqLM.from_pretrained("Junhoee/Kobart-Jeju-translation").to(device)
+
+## Set up the input text
+## 문장 입력 전에 방향에 맞게 [제주] or [표준] 토큰을 입력 후 문장 입력
+input_text = "[표준] 안녕하세요"
+
+## Tokenize the input text
+input_ids = tokenizer(input_text, return_tensors="pt", padding=True, truncation=True).input_ids.to(device)
+
+## Generate the translation
+outputs = model.generate(input_ids, max_length=64)
+
+## Decode and print the output
+decoded_output = tokenizer.decode(outputs[0], skip_special_tokens=True)
+print("Model Output:", decoded_output)
+```
+```python
+Model Output: 안녕하수꽈
+```
+  
+## 🏅나의 역할
+- **데이터셋 제작**
+  - **제주어-표준어 데이터셋 수집, 전처리를 통해 새로운 데이터셋 제작** ([Dataset](https://huggingface.co/datasets/Junhoee/Jeju-Standard-Translation))
+      - AI-Hub, Github 등 데이터 수집해 약 1,000,000 행의 제주어-표준어 텍스트 데이터셋 구성
+- **번역 모델 로직 설계**
+  - **KoBART 모델로 Fine Tuning 진행**
+  - 한국어로 사전학습된 Text2Text 모델 중에서 **KoBART**가 성능이 가장 좋고 빠른 모델이라서 선택함
+  - 양방향 로직을 설계하는 과정에서 문장 앞에 **[제주], [표준] 토큰을 입력해 모델로 하여금 이해하기 쉽게 만들어 성능 향상** (BLEU Score 0.5 -> 0.7로 향상, 최대 1 기준)
+  - RAM 부족으로 인해 약 700,000개의 데이터만 학습시킬 수 있었지만 **데이터셋 포맷 방식을 float16에서 unit16으로 변경해 메모리 부족 문제 해결 (GPU 메모리, 자원 절약)**
+ 
 ## 🎯 1. 프로젝트 소개
 ### 🧑‍🤝‍🧑 **팀원**
-- **비타민 12기 : 구준회, 이서현, 이예린**
+- **비타민 12기 : 구준회(Leader), 이서현, 이예린**
 - **비타민 13기 : 김윤영, 김재겸, 이형석**
 
 ### 📅 **시기**
@@ -13,7 +53,7 @@
 
 ### 🎯 **목표**
 - 제주 방언에 대한 이해를 증진시키고, 제주 문화의 보존에 기여하고자 합니다.
-- 제주 지역민과 원활한 의사소통을 도모합니다.
+- 제주 지역도민과 원활한 의사소통을 도모합니다.
 - 제주 사투리와 한국어 표준어 사이를 연결하는 양방향 번역 모델을 개발합니다.
 - 음성 인식 기능과 사용자 인터페이스를 구현합니다.
 
@@ -36,7 +76,7 @@
 ### 3-1. 모델 관련
 - **사전 학습 모델을 불러와 Fine-tuning 하는 방식**으로 학습하였습니다.
 - 번역 모델 개발을 위해 활용한 사전 학습 모델:
-  - **gogamza/kobart-base-v2**
+  - **gogamza/kobart-base-v2**  
 
 - **사전 학습 모델 선택 기준**
   - 번역 Task에 적합한 모델인가?
@@ -58,7 +98,7 @@
   - **batch_size : 32**
   - **traning_rate : 처음에는 2e-5에서 시작해 학습이 진행되면서 점차 줄어들도록 설정**
   - **epochs : 3**
-
+ 
 ## 📈 4. 주요 성과
 - **최종 BLEU 점수 - 제주어 구술 자료집 데이터 기준**
     - **제주어 -> 표준어 : 0.76**
@@ -67,8 +107,8 @@
 
 | 날짜          | 04-13 | 05-03 | 05-06 | 05-13 | 05-21 | 05-24 | 05-26 | 05-30 |
 |---------------|------------|------------|------------|------------|------------|------------|------------|------------|
-| 제주어->표준어 BLEU Score | 0.56 | 0.59 | 0.42 | 0.64 | 0.70 | 0.74 | 0.76 | 0.74 |
-| 표준어->제주어 BLEU Score | 0.35 | 0.37 | 0.26 | 0.37 | 0.39 | 0.46 | 0.50 | 0.49 |
+| **제주어->표준어 BLEU Score** | 0.56 | 0.59 | 0.42 | 0.64 | 0.70 | 0.74 | **0.76** | 0.74 |
+| **표준어->제주어 BLEU Score** | 0.35 | 0.37 | 0.26 | 0.37 | 0.39 | 0.46 | **0.50** | 0.49 |
 
 - 전체적으로 **우상향하는 BLEU Score을 기록**하였습니다.
 <img src="Picture_polder/BLEU_Score_graph.png" alt="BLEU Score 시각화" width="600"/>
@@ -88,7 +128,8 @@
 - 양질의 데이터 확보를 위해 추가적인 데이터 수집과 문법적 미세 조정을 통한 전처리 수행
 - 음성 인식 모델의 억양 인식 능력 향상
 - 웹 구현 및 모바일 앱 개발 계획
-
+ 
+    
 ## 🧹 6. 참조
 - **데이터 출처**
   - 한국어 방언 발화 데이터 (AI-Hub 제공) : https://www.aihub.or.kr/aihubdata/data/view.do?currMenu=115&topMenu=100&aihubDataSe=data&dataSetSn=121
